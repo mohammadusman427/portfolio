@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Usman | Professional Mobile Application Developer</title>
-    <meta name="description" content=" Professional React Native & React.js developer specializing in cross-platform mobile applications. View my portfolio of live apps, including e-commerce, auction platforms, and productivity tools.">
+    <title>Muhammad Usman | Senior React.js & React Native Developer</title>
+    <meta name="description" content="Senior Software Engineer specializing in React.js and React Native. 3+ years building scalable web and mobile applications across fintech, real estate, fitness, and supply-chain domains.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,16 +12,16 @@
     <style>
         /* CSS Variables */
         :root {
-            --primary-color: #38bdf8; /* sky-400 */
-            --secondary-color: #0ea5e9; /* sky-500 */
-            --accent-color: #60a5fa; /* blue-400 */
-            --text-primary: #f8fafc; /* slate-50 */
-            --text-secondary: #94a3b8; /* slate-400 */
-            --text-dark: #1e293b; /* slate-800 */
-            --bg-primary: #0f172a; /* slate-900 */
-            --bg-secondary: #1e293b; /* slate-800 */
-            --bg-tertiary: #334155; /* slate-700 */
-            --border-color: #334155; /* slate-700 */
+            --primary-color: #38bdf8;
+            --secondary-color: #0ea5e9;
+            --accent-color: #60a5fa;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-dark: #1e293b;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --border-color: #334155;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -30,15 +30,8 @@
             --gradient-primary: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -47,894 +40,258 @@
             background: var(--bg-primary);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
         /* Navigation */
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: all 0.3s ease;
+            z-index: 1000; transition: all 0.3s ease;
         }
-
-        .navbar.scrolled {
-            box-shadow: var(--shadow-md);
-        }
-
+        .navbar.scrolled { box-shadow: var(--shadow-md); }
         .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto;
         }
-
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            font-size: 1.5rem; font-weight: 700; color: var(--primary-color);
+            text-decoration: none; text-shadow: 0 0 10px rgba(56,189,248,0.3);
         }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
         .nav-link {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
+            text-decoration: none; color: var(--text-primary); font-weight: 500;
+            transition: color 0.3s ease; position: relative;
         }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-color);
-        }
-
+        .nav-link:hover, .nav-link.active { color: var(--primary-color); }
         .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s ease;
         }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .mobile-menu-toggle { display: none; flex-direction: column; cursor: pointer; padding: 0.5rem; }
+        .mobile-menu-toggle span { width: 25px; height: 3px; background: var(--text-primary); margin: 3px 0; transition: 0.3s; }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-primary);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             background-color: var(--bg-primary);
-            background-image: radial-gradient(circle at 25px 25px, rgba(56, 189, 248, 0.2) 2%, transparent 0%), 
-                              radial-gradient(circle at 75px 75px, rgba(56, 189, 248, 0.2) 2%, transparent 0%);
+            background-image: radial-gradient(circle at 25px 25px, rgba(56,189,248,0.2) 2%, transparent 0%),
+                              radial-gradient(circle at 75px 75px, rgba(56,189,248,0.2) 2%, transparent 0%);
             background-size: 100px 100px;
-            color: var(--text-primary);
-            padding: 140px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            color: var(--text-primary); padding: 140px 0 100px;
+            text-align: center; position: relative; overflow: hidden;
         }
-
-        .hero::before {
-            content: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
+        .hero-content { position: relative; z-index: 2; }
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 4rem; font-weight: 700; margin-bottom: 1rem;
             background: linear-gradient(45deg, var(--primary-color), #fff, var(--primary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            background-size: 200% 100%;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; background-size: 200% 100%;
             animation: fadeInUp 0.8s ease, backgroundPan 3s linear infinite;
         }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: var(--text-secondary);
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-            color: var(--primary-color);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.8s both;
-        }
-
+        .hero-subtitle { font-size: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary); animation: fadeInUp 0.8s ease 0.2s both; }
+        .hero-description { font-size: 1.1rem; max-width: 620px; margin: 0 auto 2rem; color: var(--text-secondary); animation: fadeInUp 0.8s ease 0.4s both; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; margin: 3rem 0; flex-wrap: wrap; }
+        .stat-item { text-align: center; animation: fadeInUp 0.8s ease 0.6s both; }
+        .stat-number { font-size: 2.5rem; font-weight: 700; display: block; color: var(--primary-color); }
+        .stat-label { font-size: 0.9rem; color: var(--text-secondary); }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.8s both; }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.875rem 1.5rem; border-radius: 0.5rem; text-decoration: none;
+            font-weight: 600; transition: all 0.3s ease; border: 2px solid transparent; cursor: pointer;
         }
+        .btn-primary { background: var(--primary-color); color: var(--text-dark); }
+        .btn-primary:hover { background: var(--secondary-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56,189,248,0.2); }
+        .btn-secondary { color: var(--text-primary); border-color: var(--border-color); }
+        .btn-secondary:hover { background: var(--bg-tertiary); border-color: var(--primary-color); color: var(--primary-color); }
 
-        .btn-primary {
-            background: var(--primary-color);
-            color: var(--text-dark);
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
-        }
-
-        .btn-secondary {
-            color: var(--text-primary);
-            border-color: var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        /* About Section */
-        .about {
-            padding: 5rem 0;
-            background: var(--bg-secondary);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-        
-        .about-image-container {
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .profile-picture {
-            width: 100%;
-            border-radius: 50%;
-            border: 5px solid var(--border-color);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-picture:hover {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .skills-section {
-            margin-top: 4rem;
-        }
-
-        .skills-title {
-            text-align: center;
-            font-size: 1.75rem;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
+        /* About */
+        .about { padding: 5rem 0; background: var(--bg-secondary); }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; margin-bottom: 4rem; }
+        .about-image-container { width: 100%; max-width: 300px; margin: 0 auto; }
+        .profile-picture { width: 100%; border-radius: 50%; border: 5px solid var(--border-color); box-shadow: 0 0 30px rgba(56,189,248,0.2); transition: transform 0.3s ease; }
+        .profile-picture:hover { transform: scale(1.05); }
+        .about-text h3 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1rem; }
+        .about-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .skills-section { margin-top: 4rem; }
+        .skills-title { text-align: center; font-size: 1.75rem; color: var(--text-primary); margin-bottom: 2rem; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
         .skill-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--bg-primary);
-            border-radius: 0.5rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 0.75rem; padding: 1rem;
+            background: var(--bg-primary); border-radius: 0.5rem; border: 1px solid var(--border-color); transition: all 0.3s ease;
         }
-
-        .skill-item:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-        }
-
+        .skill-item:hover { border-color: var(--primary-color); transform: translateY(-3px); box-shadow: var(--glow); }
         .skill-icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            background: var(--gradient-primary);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-            font-size: 1.2rem;
+            width: 2.5rem; height: 2.5rem; background: var(--gradient-primary); border-radius: 0.5rem;
+            display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-size: 1.2rem;
+            flex-shrink: 0;
         }
+        .skill-name { font-weight: 600; color: var(--text-primary); }
 
-        .skill-name {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        /* Experience Section */
-        .experience {
-            padding: 5rem 0;
-            background: var(--bg-secondary);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 2rem auto 0;
-            padding: 2rem 0;
-        }
-
+        /* Experience */
+        .experience { padding: 5rem 0; background: var(--bg-primary); }
+        .timeline { position: relative; max-width: 800px; margin: 2rem auto 0; padding: 2rem 0; }
         .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-            transform: translateX(-50%);
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+            width: 2px; background: var(--border-color); transform: translateX(-50%);
         }
-
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 1rem 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 4rem;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 4rem;
-        }
-
+        .timeline-item { position: relative; width: 50%; padding: 1rem 2rem; margin-bottom: 2rem; }
+        .timeline-item:nth-child(odd) { left: 0; padding-right: 4rem; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; padding-left: 4rem; }
         .timeline-dot {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            border: 3px solid var(--bg-secondary);
-            z-index: 1;
+            content: ''; position: absolute; top: 20px;
+            width: 16px; height: 16px; background: var(--primary-color);
+            border-radius: 50%; border: 3px solid var(--bg-primary); z-index: 1;
         }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
-
+        .timeline-item:nth-child(odd) .timeline-dot { right: -8px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -8px; }
         .timeline-content {
-            background: var(--bg-primary);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            background: var(--bg-secondary); padding: 1.5rem; border-radius: 0.5rem;
+            border: 1px solid var(--border-color); transition: all 0.3s ease;
         }
-        
-        .timeline-content:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-        }
+        .timeline-content:hover { border-color: var(--primary-color); transform: translateY(-3px); box-shadow: var(--glow); }
+        .timeline-date { display: block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .timeline-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+        .timeline-company { font-style: italic; margin-bottom: 0.75rem; color: var(--text-secondary); font-size: 0.9rem; }
+        .timeline-description { font-size: 0.9rem; line-height: 1.6; }
 
-        .timeline-date {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-company {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .timeline-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 5rem 0;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
+        /* Projects */
+        .portfolio { padding: 5rem 0; background: var(--bg-secondary); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .portfolio-card {
-            background: var(--bg-secondary);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
+            background: var(--bg-primary); border-radius: 1rem; overflow: hidden;
+            transition: all 0.3s ease; border: 1px solid var(--border-color);
         }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
-            border-color: var(--primary-color);
-        }
-
-        .card-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .card-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
+        .portfolio-card:hover { transform: translateY(-5px); box-shadow: var(--glow); border-color: var(--primary-color); }
+        .card-header { padding: 1.5rem; border-bottom: 1px solid var(--border-color); }
+        .card-title { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
         .app-icon {
-            width: 3rem;
-            height: 3rem;
-            background: var(--gradient-primary);
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-            font-size: 1.5rem;
+            width: 3rem; height: 3rem; background: var(--gradient-primary); border-radius: 0.75rem;
+            display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-size: 1.5rem; flex-shrink: 0;
         }
+        .card-title h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); }
+        .card-category { display: inline-block; background: var(--bg-tertiary); color: var(--text-secondary); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.8rem; font-weight: 500; }
+        .card-content { padding: 1.5rem; }
+        .card-description { color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6; font-size: 0.95rem; }
+        .card-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+        .feature-tag { background: var(--accent-color); color: var(--bg-primary); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500; }
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tech-tag { background: var(--bg-tertiary); color: var(--primary-color); padding: 0.25rem 0.6rem; border-radius: 0.4rem; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(56,189,248,0.3); }
 
-        .app-image {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            border: 2px solid var(--border-color);
+        /* Resume Section */
+        .resume-section { padding: 5rem 0; background: var(--bg-primary); }
+        .resume-card {
+            max-width: 700px; margin: 2rem auto 0;
+            background: var(--bg-secondary); border-radius: 1rem;
+            border: 1px solid var(--border-color); overflow: hidden;
             transition: all 0.3s ease;
         }
-
-        .app-image:hover {
-            transform: scale(1.1);
-            border-color: var(--primary-color);
+        .resume-card:hover { border-color: var(--primary-color); box-shadow: var(--glow); }
+        .resume-card-header {
+            background: var(--gradient-primary); padding: 2rem; text-align: center;
         }
+        .resume-card-header i { font-size: 3rem; color: white; margin-bottom: 1rem; display: block; }
+        .resume-card-header h3 { font-size: 1.5rem; color: white; font-weight: 700; }
+        .resume-card-header p { color: rgba(255,255,255,0.85); margin-top: 0.5rem; }
+        .resume-card-body { padding: 2rem; text-align: center; }
+        .resume-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .resume-highlight { text-align: center; padding: 1rem; background: var(--bg-primary); border-radius: 0.5rem; border: 1px solid var(--border-color); }
+        .resume-highlight .icon { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        .resume-highlight p { font-size: 0.85rem; color: var(--text-secondary); }
+        .resume-highlight strong { display: block; color: var(--text-primary); font-size: 1rem; }
+        .resume-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-        .card-title h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .card-category {
-            display: inline-block;
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .card-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-tag {
-            background: var(--accent-color);
-            color: var(--bg-primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .card-links {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .store-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .store-btn:hover {
-            background: var(--primary-color);
-            color: var(--text-dark);
-            transform: translateY(-1px);
-        }
-
-        .store-btn i {
-            font-size: 1rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 0;
-            background: var(--bg-primary);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .contact-info p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
+        /* Contact */
+        .contact { padding: 5rem 0; background: var(--bg-secondary); }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+        .contact-info h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .contact-info p { color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6; }
+        .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
         .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--bg-secondary);
-            border-radius: 0.5rem;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
+            display: flex; align-items: center; gap: 1rem; padding: 1rem;
+            background: var(--bg-primary); border-radius: 0.5rem; border: 1px solid var(--border-color);
+            text-decoration: none; color: var(--text-primary); transition: all 0.3s ease;
         }
-
-        .contact-method:hover {
-            border-color: var(--primary-color);
-            transform: translateX(5px);
-            box-shadow: var(--glow);
+        .contact-method:hover { border-color: var(--primary-color); transform: translateX(5px); box-shadow: var(--glow); }
+        .contact-method i { width: 2rem; height: 2rem; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-primary); font-size: 0.9rem; }
+        .contact-form { background: var(--bg-primary); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border-color); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-primary); }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 0.75rem; border: 1px solid var(--border-color);
+            border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.3s ease;
+            background-color: var(--bg-secondary); color: var(--text-primary);
         }
-
-        .contact-method i {
-            width: 2rem;
-            height: 2rem;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-        }
-
-        .contact-form {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: var(--glow);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: var(--glow); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
 
         /* Footer */
-        .footer {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 3rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
+        .footer { background: var(--bg-primary); color: var(--text-primary); padding: 3rem 0 2rem; text-align: center; }
+        .footer-content { margin-bottom: 2rem; }
+        .social-links { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; }
         .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            background: var(--bg-tertiary);
-            border-radius: 50%;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center;
+            width: 3rem; height: 3rem; background: var(--bg-secondary);
+            border-radius: 50%; color: var(--text-primary); text-decoration: none; transition: all 0.3s ease;
         }
-
-        .social-link:hover {
-            background: var(--primary-color);
-            transform: scale(1.1);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
-            color: var(--text-secondary);
-        }
+        .social-link:hover { background: var(--primary-color); transform: scale(1.1); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 2rem; color: var(--text-secondary); }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
-
         @keyframes backgroundPan {
             from { background-position: 0% center; }
             to { background-position: -200% center; }
         }
+        .fade-in-up { animation: fadeInUp 0.6s ease forwards; }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: var(--bg-primary);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                box-shadow: var(--shadow-lg);
+                position: fixed; top: 70px; left: -100%; width: 100%;
+                height: calc(100vh - 70px); background: var(--bg-primary);
+                flex-direction: column; justify-content: flex-start; align-items: center;
+                padding-top: 2rem; transition: left 0.3s ease; box-shadow: var(--shadow-lg);
             }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .mobile-menu-toggle {
-                display: flex;
-            }
-
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero-stats {
-                gap: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-image-container {
-                margin-bottom: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline::before {
-                left: 8px;
-                transform: translateX(0);
-            }
-
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 3rem;
-                padding-right: 1rem;
-                text-align: left !important;
-            }
-
-            .timeline-dot {
-                left: 0 !important;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .card-links {
-                flex-direction: column;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
+            .nav-menu.active { left: 0; }
+            .mobile-menu-toggle { display: flex; }
+            .mobile-menu-toggle.active span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+            .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .mobile-menu-toggle.active span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-stats { gap: 2rem; }
+            .about-content { grid-template-columns: 1fr; gap: 2rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .timeline::before { left: 8px; transform: translateX(0); }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 3rem; padding-right: 1rem; text-align: left !important; }
+            .timeline-dot { left: 0 !important; }
+            .contact-content { grid-template-columns: 1fr; gap: 2rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .resume-highlights { grid-template-columns: 1fr; }
+            .container { padding: 0 1rem; }
         }
-
         @media (max-width: 480px) {
-            .hero {
-                padding: 100px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .card-content {
-                padding: 1rem;
-            }
-
-            .card-header {
-                padding: 1rem;
-            }
+            .hero { padding: 100px 0 60px; }
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .portfolio-grid { grid-template-columns: 1fr; gap: 1rem; }
         }
-
-        /* Accessibility */
         @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .navbar, .footer, .contact-form {
-                display: none;
-            }
-            
-            .hero {
-                background: none;
-                color: black;
-                background-color: white; /* For printing */
-            }
-            
-            .hero h1 {
-                background: none;
-                -webkit-text-fill-color: initial;
-                animation: none;
-            }
-            
-            .portfolio-card {
-                break-inside: avoid;
-                margin-bottom: 1rem;
-            }
+            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -943,13 +300,12 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#portfolio" class="nav-link">Projects</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
@@ -958,47 +314,45 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>React.js | React Native Developer</h1>
-                <p class="hero-subtitle">Cross-Platform Mobile App and Web App Specialist</p>
+                <h1>React.js &amp; React Native Developer</h1>
+                <p class="hero-subtitle">Senior Software Engineer · Cross-Platform Web &amp; Mobile Specialist</p>
                 <p class="hero-description">
-                    Passionate about building elegant, high-performance applications using React.js and React Native, delivering seamless experiences across web, iOS, and Android platforms. Specialized in modern front-end architecture, state management, and intuitive user interface design to create scalable and user-friendly digital solutions.
+                    Results-driven engineer with 3+ years building high-performance web and mobile applications.
+                    Proven across fintech, real estate, fitness, and supply-chain domains — from architecture to deployment.
                 </p>
-                
+
                 <div class="hero-stats">
-                     <div class="stat-item">
-                        <span class="stat-number">20</span>
-                        <span class="stat-label">Applications Created</span>
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">12</span>
-                        <span class="stat-label">Live Applications</span>
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Companies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Shipped Projects</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">2</span>
-                        <span class="stat-label">Platforms</span>
+                        <span class="stat-label">Platforms (Web + Mobile)</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number">6</span>
                         <span class="stat-label">Industry Sectors</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Client Satisfaction</span>
-                    </div>
                 </div>
 
                 <div class="cta-buttons">
                     <a href="#portfolio" class="btn btn-primary">
-                        <i class="fas fa-eye"></i>
-                        View Portfolio
+                        <i class="fas fa-eye"></i> View Projects
                     </a>
-                    <a href="" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
                     </a>
-                     <a href="cv.pdf" class="btn btn-secondary" download>
-                        <i class="fas fa-download"></i>
-                        Download CV
+                    <a href="Muhammad_Usman_Resume.pdf" class="btn btn-secondary" download>
+                        <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
             </div>
@@ -1010,25 +364,31 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">
-                    A snapshot of my skills, passion, and professional journey
-                </p>
+                <p class="section-subtitle">A snapshot of my skills, passion, and professional journey</p>
             </div>
-            
+
             <div class="about-content">
                 <div class="about-image-container">
-                    <img src="profile.jpeg" alt="Gohar Zafar" class="profile-picture">
+                    <img src="profile.jpeg" alt="Muhammad Usman" class="profile-picture">
                 </div>
                 <div class="about-text">
                     <h3>Hello, I'm Muhammad Usman.</h3>
                     <p>
-                        I'm a dedicated and results-driven Flutter developer with a deep passion for building cross-platform mobile applications that are both beautiful and highly functional. My journey in software development is fueled by a desire to solve complex problems and create intuitive, user-centric experiences.
+                        I'm a Senior Software Engineer specialising in React.js and React Native, with a deep passion
+                        for building cross-platform applications that are both beautiful and highly performant.
+                        My journey in software is driven by a desire to solve real problems and deliver
+                        intuitive, user-centric experiences.
                     </p>
                     <p>
-                        With a focus on clean, scalable code and modern architecture patterns like BLoC and Riverpod, I deliver applications that not only meet technical requirements but also provide a seamless and enjoyable experience for the end-user. I'm a lifelong learner, always eager to explore the latest advancements in the Flutter ecosystem and mobile development best practices.
+                        Currently at <strong style="color: var(--primary-color)">Kale Labs</strong>, I lead the frontend
+                        architecture of a scalable SaaS platform for supply-chain management and FMCG sales optimisation.
+                        I specialise in modern state management (Redux Toolkit, Zustand), RESTful API integration,
+                        and rendering optimisation across web and mobile surfaces.
                     </p>
                     <p>
-                        My collaborative spirit and strong communication skills enable me to work effectively in team environments, ensuring projects are delivered on time and to the highest standard of quality.
+                        I hold a B.S. in Information Technology from the University of Sargodha and bring a
+                        collaborative, Agile mindset to every project — always focused on clean, maintainable code
+                        and measurable impact.
                     </p>
                 </div>
             </div>
@@ -1037,52 +397,40 @@
                 <h3 class="skills-title">Core Competencies</h3>
                 <div class="skills-grid">
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fab fa-flutter"></i>
-                        </div>
-                        <span class="skill-name">Flutter Framework</span>
+                        <div class="skill-icon"><i class="fab fa-react"></i></div>
+                        <span class="skill-name">React.js</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fab fa-dart-lang"></i>
-                        </div>
-                        <span class="skill-name">Dart Programming</span>
+                        <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <span class="skill-name">React Native</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <span class="skill-name">State Management (BLoC/Riverpod)</span>
+                        <div class="skill-icon"><i class="fab fa-js-square"></i></div>
+                        <span class="skill-name">JavaScript (ES6+) &amp; TypeScript</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-fire"></i>
-                        </div>
-                        <span class="skill-name">Firebase & Firestore</span>
+                        <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+                        <span class="skill-name">Redux / Redux Toolkit / Zustand</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <span class="skill-name">REST APIs & GraphQL</span>
+                        <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                        <span class="skill-name">REST APIs · Axios · Fetch</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <span class="skill-name">Real-time Applications</span>
+                        <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                        <span class="skill-name">Firebase &amp; Firestore</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <span class="skill-name">UI/UX Implementation</span>
+                        <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                        <span class="skill-name">HTML5 / CSS3 / XML</span>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <span class="skill-name">CI/CD & DevOps</span>
+                        <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                        <span class="skill-name">Git · GitHub · VS Code · Expo</span>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon"><i class="fas fa-users"></i></div>
+                        <span class="skill-name">Agile / Cross-functional Teams</span>
                     </div>
                 </div>
             </div>
@@ -1094,67 +442,71 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Work Experience</h2>
-                <p class="section-subtitle">
-                    My professional journey as a mobile application developer
-                </p>
+                <p class="section-subtitle">My professional journey as a React.js &amp; React Native developer</p>
             </div>
 
             <div class="timeline">
+                <!-- Kale Labs -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2025 - Present</span>
-                        <h3 class="timeline-title">Senior Flutter Developer</h3>
-                        <p class="timeline-company">ZRRTech Solutions Pvt Ltd.</p>
+                        <span class="timeline-date">Jan 2025 – Present</span>
+                        <h3 class="timeline-title">Senior React Developer</h3>
+                        <p class="timeline-company">Kale Labs · Lahore, Pakistan</p>
                         <p class="timeline-description">
-                            Leading the development of complex, cross-platform mobile applications for enterprise clients. Architecting scalable solutions, mentoring junior developers, and implementing advanced features like real-time data synchronization and complex animations.
+                            Leading frontend architecture of a scalable SaaS platform for supply-chain management and FMCG sales optimisation. Implemented code splitting, lazy loading, and API caching strategies to significantly improve load times. Collaborates with cross-functional Agile teams to align delivery with business goals.
                         </p>
                     </div>
                 </div>
 
+                <!-- TechXpert -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2024 - 2025</span>
-                        <h3 class="timeline-title">Mid-Level Flutter Developer</h3>
-                        <p class="timeline-company">Blue World City</p>
+                        <span class="timeline-date">Oct 2023 – Jan 2025</span>
+                        <h3 class="timeline-title">Senior React Native Developer</h3>
+                        <p class="timeline-company">TechXpert · Islamabad, Pakistan</p>
                         <p class="timeline-description">
-                            Developed and maintained several e-commerce and logistics applications using Flutter. Collaborated with UI/UX designers to translate wireframes into high-quality code and integrated with various third-party APIs for payments and analytics.
-                        </p>
-                    </div>
-                </div>
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2024 - 2025</span>
-                        <h3 class="timeline-title">Remote Flutter Developer</h3>
-                        <p class="timeline-company">Qodix Labs Pvt Ltd.</p>
-                        <p class="timeline-description">
-                            Developed and maintained several e-commerce and logistics applications using Flutter. Collaborated with UI/UX designers to translate wireframes into high-quality code and integrated with various third-party APIs for payments and analytics.
+                            Built feature-rich cross-platform mobile apps including real-time maps integration, in-app voice/video calling, and push-notification pipelines. Reduced app startup time by 30% through bundle optimisation and lazy-loaded screens.
                         </p>
                     </div>
                 </div>
 
+                <!-- 724.One -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2023 - 2024</span>
-                        <h3 class="timeline-title">Junior Android Developer</h3>
-                        <p class="timeline-company">Vitalblaze Pvt Ltd. </p>
-                        <p class="timeline-company">UK Based </p>
+                        <span class="timeline-date">Aug 2022 – Oct 2023</span>
+                        <h3 class="timeline-title">React Native &amp; React.js Developer</h3>
+                        <p class="timeline-company">724.One · Remote</p>
                         <p class="timeline-description">
-                            Gained foundational experience in mobile development, working on various small-scale projects. Assisted in bug fixing, feature implementation, and contributed to the full software development lifecycle.
+                            Developed and shipped several production-grade React Native apps from concept to App Store / Play Store release. Implemented Redux-based state management patterns and resolved performance bottlenecks across multiple projects.
                         </p>
                     </div>
                 </div>
+
+                <!-- Dot Log -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2021 - 2023</span>
-                        <h3 class="timeline-title">Junior Android Developer</h3>
-                        <p class="timeline-company">Vaspert Tech Pvt Ltd. </p>
+                        <span class="timeline-date">May 2022 – Aug 2022</span>
+                        <h3 class="timeline-title">Junior React Native &amp; React.js Developer</h3>
+                        <p class="timeline-company">Dot Log · Pakistan</p>
                         <p class="timeline-description">
-                            Gained foundational experience in mobile development, working on various small-scale projects. Assisted in bug fixing, feature implementation, and contributed to the full software development lifecycle.
+                            Composed core React Native UI components, integrated React Navigation for multi-stack routing, and consumed REST APIs using Axios and Fetch to populate dynamic data screens.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Unit-G -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Feb 2022 – May 2022</span>
+                        <h3 class="timeline-title">React Native Developer (Internship)</h3>
+                        <p class="timeline-company">Unit-G · Pakistan</p>
+                        <p class="timeline-description">
+                            Applied UI/UX fundamentals to build user-friendly mobile interfaces under senior mentorship. Actively participated in code reviews, internalising best practices around component structure and reusability.
                         </p>
                     </div>
                 </div>
@@ -1162,392 +514,177 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Projects Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">My Portfolio</h2>
+                <h2 class="section-title">Key Projects</h2>
                 <p class="section-subtitle">
-                    A collection of live mobile applications built with Flutter, showcasing diverse functionality and industry expertise
+                    A selection of React Native &amp; React.js applications I've designed and built
                 </p>
             </div>
-            
+
             <div class="portfolio-grid">
-                <!-- TradeMe AE -->
+                <!-- SEREMO -->
                 <div class="portfolio-card">
                     <div class="card-header">
                         <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/trademe.png" alt="TradeMe AE" class="app-image">
-                            </div>
+                            <div class="app-icon"><i class="fas fa-university"></i></div>
                             <div>
-                                <h3>TradeMe AE</h3>
-                                <span class="card-category">Auction & Bidding Platform</span>
+                                <h3>SEREMO</h3>
+                                <span class="card-category">Mobile Banking App</span>
                             </div>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="card-description">
-                            A comprehensive UAE-based auction and bidding platform that enables users to participate in live auctions, place real-time bids, and manage their trading activities with advanced security features and seamless payment integration.
+                            Secure digital banking platform enabling instant QR-code money transfers, international cross-border payments, mobile top-ups, account management, and real-time transaction history.
                         </p>
                         <div class="card-features">
-                            <span class="feature-tag">Live Bidding</span>
-                            <span class="feature-tag">Real-time Updates</span>
-                            <span class="feature-tag">Secure Payments</span>
-                            <span class="feature-tag">User Authentication</span>
-                            <span class="feature-tag">Push Notifications</span>
+                            <span class="feature-tag">QR Transfers</span>
+                            <span class="feature-tag">International Payments</span>
+                            <span class="feature-tag">Mobile Top-Up</span>
+                            <span class="feature-tag">Real-time Transactions</span>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.trademe.ae&hl=en" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                             <a href="https://apps.apple.com/pk/app/trademe-ae/id6740152535" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-apple"></i>
-                                App Store
-                            </a>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <!-- Khilafat Cola -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/kc.png" alt="Khilafat Cola" class="app-image">
-                            </div>
-                            <div>
-                                <h3>Khilafat Cola</h3>
-                                <span class="card-category">Beverages & Logistics</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Enterprise-grade beverages distribution application featuring 6 specialized modules for comprehensive logistics management, inventory tracking, sales analytics, and distribution network optimization for beverage companies.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">6 Modules System</span>
-                            <span class="feature-tag">Inventory Management</span>
-                            <span class="feature-tag">Distribution Tracking</span>
-                            <span class="feature-tag">Sales Analytics</span>
-                            <span class="feature-tag">Route Optimization</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.khilafat.cola&hl=en" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Redux</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Unwind By Umaans -->
+                <!-- ESTATEST -->
                 <div class="portfolio-card">
                     <div class="card-header">
                         <div class="card-title">
-                            <div class="app-icon">
-                                <i class="fas fa-shopping-bag"></i>
-                            </div>
+                            <div class="app-icon"><i class="fas fa-graduation-cap"></i></div>
                             <div>
-                                <h3>Unwind By Umaans</h3>
-                                <span class="card-category">E-Commerce Platform</span>
+                                <h3>ESTATEST</h3>
+                                <span class="card-category">Real Estate Exam Prep</span>
                             </div>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="card-description">
-                            Modern e-commerce platform providing seamless shopping experience with intuitive product browsing, advanced search functionality, secure checkout process, and personalized recommendations for enhanced customer engagement.
+                            Interactive e-learning platform for real estate licence exam preparation featuring live &amp; recorded classes, mock exams, instant results, performance analytics, and real-time progress tracking.
                         </p>
                         <div class="card-features">
-                            <span class="feature-tag">Product Catalog</span>
-                            <span class="feature-tag">Secure Checkout</span>
-                            <span class="feature-tag">Order Tracking</span>
-                            <span class="feature-tag">Wishlist</span>
-                            <span class="feature-tag">Payment Gateway</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.unwindby.umaans.unwind&hl=en" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Habbit Planner -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <i class="fas fa-tasks"></i>
-                            </div>
-                            <div>
-                                <h3>Habbit Planner</h3>
-                                <span class="card-category">Productivity & Lifestyle</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Smart habit tracking and daily routine management application that helps users build positive habits, track progress with detailed analytics, set goals, and maintain consistent daily schedules with intelligent reminders.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Habit Tracking</span>
-                            <span class="feature-tag">Progress Analytics</span>
-                            <span class="feature-tag">Smart Reminders</span>
-                            <span class="feature-tag">Goal Setting</span>
-                            <span class="feature-tag">Streak Counter</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.hds.habittracker.routineplanner&hl=en" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Banyan Home -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <i class="fas fa-home"></i>
-                            </div>
-                            <div>
-                                <h3>Banyan Home</h3>
-                                <span class="card-category">Home & Lifestyle</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Cross-platform home management application available on both Android and iOS, providing comprehensive tools for modern home organization, lifestyle management, and smart home integration with intuitive user interface.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Cross-Platform</span>
-                            <span class="feature-tag">Home Management</span>
-                            <span class="feature-tag">Organization Tools</span>
-                            <span class="feature-tag">Lifestyle Tracking</span>
-                            <span class="feature-tag">Smart Integration</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.banyanhome.app&hl=en" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                            <a href="https://apps.apple.com/us/app/banyan-home/id6743860965" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-apple"></i>
-                                App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MyLink Muslim Marriage App -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/mylink.png" alt="MyLink Muslim Marriage App" class="app-image">
-                            </div>
-                            <div>
-                                <h3>MyLink Muslim Marriage App</h3>
-                                <span class="card-category">Social Networking & Matchmaking</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Halal Muslim marriage and matchmaking platform designed for serious relationships based on Islamic values. Features advanced matchmaking algorithms, profile verification, secure messaging, and video calling for meaningful connections.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Halal Matchmaking</span>
-                            <span class="feature-tag">Profile Verification</span>
-                            <span class="feature-tag">Video Calling</span>
-                            <span class="feature-tag">Secure Messaging</span>
-                            <span class="feature-tag">Advanced Search</span>
-                            <span class="feature-tag">Truth or Dare Games</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.my.link.app" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                            <a href="https://apps.apple.com/app/mylink-muslim-marriage-app/id6742732774" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-apple"></i>
-                                App Store
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Blue World City -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/bwc.png" alt="Blue World City" class="app-image">
-                            </div>
-                            <div>
-                                <h3>Blue World City</h3>
-                                <span class="card-category">Real Estate & Property Management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Official BWC mobile application for managing user accounts, payments, and property-related services. Provides comprehensive real estate management features with secure payment processing and account management capabilities.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Account Management</span>
-                            <span class="feature-tag">Payment Processing</span>
-                            <span class="feature-tag">Property Services</span>
-                            <span class="feature-tag">User Authentication</span>
-                            <span class="feature-tag">Real-time Updates</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.bwc.mobile.members" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BWC Digital Wallet -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <i class="fas fa-wallet"></i>
-                            </div>
-                            <div>
-                                <h3>BWC Digital Wallet</h3>
-                                <span class="card-category">Financial Management & Ledger</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Customer-specific digital wallet application for managing dealer ledgers, financial transactions, and verification receipts. Streamlines dealer financial management with secure transaction tracking and comprehensive reporting.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Dealer Ledger</span>
-                            <span class="feature-tag">Financial Tracking</span>
-                            <span class="feature-tag">Verification Receipts</span>
-                            <span class="feature-tag">Transaction History</span>
-                            <span class="feature-tag">Secure Payments</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.wallet.bwc" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Planny -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/planny.png" alt="Planny" class="app-image">
-                            </div>
-                            <div>
-                                <h3>Planny</h3>
-                                <span class="card-category">Driving School Management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Smart driving school management platform connecting instructors and students. Features lesson scheduling, progress tracking, digital progress cards, and professional communication tools for seamless driving education management.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Lesson Scheduling</span>
-                            <span class="feature-tag">Progress Tracking</span>
-                            <span class="feature-tag">Digital Progress Cards</span>
-                            <span class="feature-tag">Instructor Management</span>
-                            <span class="feature-tag">Student Portal</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.planny.app" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FSCS School Management -->
-                <div class="portfolio-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/fscs.png" alt="FSCS School Management" class="app-image">
-                            </div>
-                            <div>
-                                <h3>FSCS School Management</h3>
-                                <span class="card-category">Educational Management System</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="card-description">
-                            Comprehensive school management application by BWC designed to streamline educational operations. Features student management, academic tracking, administrative tools, and communication systems for educational institutions.
-                        </p>
-                        <div class="card-features">
-                            <span class="feature-tag">Student Management</span>
-                            <span class="feature-tag">Academic Tracking</span>
-                            <span class="feature-tag">Administrative Tools</span>
-                            <span class="feature-tag">Communication System</span>
+                            <span class="feature-tag">Live Classes</span>
+                            <span class="feature-tag">Mock Exams</span>
                             <span class="feature-tag">Performance Analytics</span>
+                            <span class="feature-tag">Progress Tracking</span>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.forces.school" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Node.js APIs</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- FGC College Management -->
+                <!-- Welcome Homes -->
                 <div class="portfolio-card">
                     <div class="card-header">
                         <div class="card-title">
-                            <div class="app-icon">
-                                <img src="images/fgc.png" alt="FGC College Management" class="app-image">
-                            </div>
+                            <div class="app-icon"><i class="fas fa-home"></i></div>
                             <div>
-                                <h3>FGC College Management</h3>
-                                <span class="card-category">Higher Education Management</span>
+                                <h3>Welcome Homes</h3>
+                                <span class="card-category">Property Marketplace</span>
                             </div>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="card-description">
-                            Advanced college management application for FGC (Forces College) providing comprehensive tools for higher education administration, student services, academic management, and institutional operations.
+                            End-to-end property buying and selling app with advanced search filters, Google Maps integration, detailed photo listings, and in-app buyer–seller messaging for faster, more transparent transactions.
                         </p>
                         <div class="card-features">
-                            <span class="feature-tag">College Administration</span>
-                            <span class="feature-tag">Student Services</span>
-                            <span class="feature-tag">Academic Management</span>
-                            <span class="feature-tag">Institutional Operations</span>
-                            <span class="feature-tag">Higher Education Tools</span>
+                            <span class="feature-tag">Map Integration</span>
+                            <span class="feature-tag">Advanced Search</span>
+                            <span class="feature-tag">In-App Messaging</span>
+                            <span class="feature-tag">Property Listings</span>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.forces.college" class="store-btn" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-google-play"></i>
-                                Google Play
-                            </a>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Google Maps SDK</span>
+                            <span class="tech-tag">REST APIs</span>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Sorfit-10 -->
+                <div class="portfolio-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="app-icon"><i class="fas fa-dumbbell"></i></div>
+                            <div>
+                                <h3>Sorfit-10</h3>
+                                <span class="card-category">Smart Fitness App</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="card-description">
+                            Bluetooth-connected workout tracker that syncs with fitness wearables to monitor real-time health data, offer customisable training plans, and deliver performance insights and progress dashboards.
+                        </p>
+                        <div class="card-features">
+                            <span class="feature-tag">Bluetooth BLE</span>
+                            <span class="feature-tag">Real-time Health Data</span>
+                            <span class="feature-tag">Custom Workout Plans</span>
+                            <span class="feature-tag">Progress Dashboards</span>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">BLE</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">Redux Toolkit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Resume</h2>
+                <p class="section-subtitle">Download or view my full resume with complete work history and skills</p>
+            </div>
+
+            <div class="resume-card">
+                <div class="resume-card-header">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Muhammad Usman — Resume</h3>
+                    <p>Senior Software Engineer · React.js &amp; React Native</p>
+                </div>
+                <div class="resume-card-body">
+                    <div class="resume-highlights">
+                        <div class="resume-highlight">
+                            <div class="icon"><i class="fas fa-briefcase"></i></div>
+                            <strong>5 Roles</strong>
+                            <p>Full work history from internship to senior level</p>
+                        </div>
+                        <div class="resume-highlight">
+                            <div class="icon"><i class="fas fa-code"></i></div>
+                            <strong>Full Tech Stack</strong>
+                            <p>React.js, React Native, TypeScript, Redux, Firebase</p>
+                        </div>
+                        <div class="resume-highlight">
+                            <div class="icon"><i class="fas fa-project-diagram"></i></div>
+                            <strong>4 Projects</strong>
+                            <p>Fintech, real estate, fitness, and education</p>
+                        </div>
+                    </div>
+                    <div class="resume-actions">
+                        <a href="Muhammad_Usman_Resume.pdf" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                        <a href="Muhammad_Usman_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-eye"></i> View in Browser
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1560,69 +697,69 @@
             <div class="section-header">
                 <h2 class="section-title">Let's Work Together</h2>
                 <p class="section-subtitle">
-                    Ready to bring your mobile app idea to life? Let's discuss your project and create something amazing together.
+                    Open to new opportunities, interesting projects, and collaborations. Let's build something great.
                 </p>
             </div>
-            
+
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
                     <p>
-                        I'm always open to discussing new opportunities, interesting projects, and potential collaborations. Whether you need a complete mobile app solution or consulting on Flutter development, I'm here to help.
+                        Whether you need a complete React.js web app, a cross-platform React Native mobile app,
+                        or a senior engineer to level up your frontend team — I'm here to help.
                     </p>
-                    
+
                     <div class="contact-methods">
-                        <a href="mailto:your.email@example.com" class="contact-method">
+                        <a href="mailto:Umohammad552@gmail.com" class="contact-method">
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <strong>Email</strong>
-                                <p>umohammad552@gmail.com</p>
+                                <p>Umohammad552@gmail.com</p>
                             </div>
                         </a>
-                        <a href="tel:+92-308-1865705" class="contact-method">
+                        <a href="tel:+923039223651" class="contact-method">
                             <i class="fas fa-phone"></i>
                             <div>
                                 <strong>Phone</strong>
-                                <p>+923039223651</p>
+                                <p>+92 303 922 3651</p>
                             </div>
                         </a>
                         <a href="https://www.linkedin.com/in/usmanbinshafique/" class="contact-method" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i>
                             <div>
                                 <strong>LinkedIn</strong>
-                                <p>Connect with me</p>
+                                <p>linkedin.com/in/usmanbinshafique</p>
                             </div>
                         </a>
                         <a href="https://github.com/mohammadusman427" class="contact-method" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-github"></i>
                             <div>
                                 <strong>GitHub</strong>
-                                <p>View my code</p>
+                                <p>github.com/mohammadusman427</p>
                             </div>
                         </a>
                     </div>
                 </div>
-                
+
                 <form class="contact-form" id="contact-form">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        Send Message
+                        <i class="fas fa-paper-plane"></i> Send Message
                     </button>
                 </form>
             </div>
@@ -1633,11 +770,27 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <h3>Looking Forward to seeing you</h3>
+                <h3 style="color: var(--text-primary); font-size: 1.5rem;">Muhammad Usman</h3>
+                <p style="margin-top: 0.5rem;">Senior React.js &amp; React Native Developer</p>
             </div>
-            
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/usmanbinshafique/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/mohammadusman427" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:Umohammad552@gmail.com" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="Muhammad_Usman_Resume.pdf" class="social-link" download aria-label="Download Resume">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2025 Gohar Zafar. All rights reserved. | Designed with ❤️ </p>
+                <p>&copy; 2025 Muhammad Usman. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1646,13 +799,10 @@
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const navMenu = document.getElementById('nav-menu');
-
         mobileMenuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
         });
-
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -1663,129 +813,55 @@
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Active navigation link based on scroll position
+        // Active nav link on scroll
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
-
         function updateActiveNavLink() {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                if (window.scrollY >= section.offsetTop - 100 && window.scrollY < section.offsetTop - 100 + section.offsetHeight) {
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
             });
         }
-
         window.addEventListener('scroll', updateActiveNavLink);
 
-        // Contact form handling
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', (e) => {
+        // Contact form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Simple form validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields.');
-                return;
+            const data = new FormData(e.target);
+            if (!data.get('name') || !data.get('email') || !data.get('subject') || !data.get('message')) {
+                alert('Please fill in all fields.'); return;
             }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.get('email'))) {
+                alert('Please enter a valid email address.'); return;
             }
-            
-            // Show success message (in a real implementation, you'd send this to a server)
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            contactForm.reset();
+            alert("Thanks for reaching out! I'll get back to you soon.");
+            e.target.reset();
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Intersection observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('fade-in-up'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.portfolio-card, .skill-item, .stat-item, .timeline-content, .resume-highlight').forEach(el => observer.observe(el));
 
-        // Observe portfolio cards and skill items
-        document.querySelectorAll('.portfolio-card, .skill-item, .stat-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scrolling for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Add loading animation for external links
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.addEventListener('click', function() {
-                this.style.opacity = '0.7';
-                setTimeout(() => {
-                    this.style.opacity = '1';
-                }, 1000);
-            });
-        });
-
-        // Performance optimization: Lazy load images if any were added
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Add subtle parallax effect to hero section
+        // Hero parallax
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroContent = document.querySelector('.hero-content');
